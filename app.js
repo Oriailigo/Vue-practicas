@@ -39,7 +39,7 @@ new Vue({ // esta estructura se define asi por defecto
   },
 })
 
-
+// OTRO DEL PROFE
 Vue.component('CoinDetail', {
   props: ['coin'],
 
