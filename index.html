@@ -9,67 +9,13 @@
 </head>
 <body>
   <!-- 1) -->
-  <div id="api" v-bind:style="{background:'#'+color}"> {{ titulo }} 
-    <!-- 2) se agrega el v-bind para cambiar los atributos de los tags.
-    Nota: recordar que todas las cosas que se hagan deben estar dentro del api -->
-    <!-- 8) uso del v-bind:class para colocar el color segun el valor de la plata -->
-      <h1 v-bind:class="plata > 0 ? 'red':'green' "> {{ nom }} </h1>
-      <!-- 7) uso del evento mouse-over sobre la imagen para mostrar despues los precios -->
-      <img v-on:mouseover="toggleShowPrices"
-          v-on:mouseout="toggleShowPrices"
-       v-bind:src="img" v-bind:alt="name">
-      <!--3) uso de v-if manipula mucho el DOM-->
-      <!-- <span v-if="plata > 0 "> <p>if</p> </span>
-      <span v-else-if="plata < 0 "> <p>sino del if</p> </span>
-      <span v-else> <p>estoy en el sino </p> </span> -->
+  <div id="api" v-bind:style="{background:'#'+color}"> 
+      <!-- <pri_encabezado></pri_encabezado> -->
+      <mostrar_precio v-bind:prop_object="btc"
+      ></mostrar_precio>
+      
 
-<!-- 4) uso de v-show esta bueno para no mutar al DOM-->
-      <!-- <span v-show="plata > 0 "> <p>if</p> </span>
-      <span v-show="plata < 0 "> <p>sino del if</p> </span>
-      <span v-show="plata == 0 "> <p>estoy en el sino </p> </span> -->
-
-      <!-- 5) uso de v-for p son los valores del array e i son las posiciones-->
-      <!-- <span v-for="(p,i) in precio "v-bind:key="p"> <p>{{i}}-{{p}}</p> </span> -->
-      <!-- 6) uso de v-on:click para el evento click que dispare una funcion -->
-      <h1>
-      <span v-on:click="toggleShowPrices">
-          mostrar precios
-          {{ showPrices ? '🙉' : '🙈' }}
-      </span>
-      </h1>
-      <ul v-show="showPrices">
-      <!-- uso de v-for p son los valores del array e i son las posiciones-->
-      <!-- 9) aplicar un color a un solo elemento del array  v-bind:class="{orange: (plata == p.value)}"-->
-        <li 
-
-        v-bind:class="{orange: (plata == p.value)}"
-        v-for="(p,i) in precios_con_dias"> <p>{{i}}-{{p.dia}}:{{p.value}}</p> </li>
-
-      </ul>
-      <!-- 12) v-model 
-      La directiva v-model permite linkear las cosas que puede escribir el usuario mediante un input con las propiedades que tenemos definidas en data. Es lo que permite que cada vez que se cambia la vista a través de interacciones con el usuario se refesque el código y cada vez que se refresque el código también se actualice la vista, esto se le conoce como Two-Way Data Binding.-->
-      <input type="number" v-model="value">
-      <span> {{convertValue}}</span>
 </div>
-
-
-
-  <!-- <div id="app" v-bind:style="{ background: '#' + color }">
-    <coin-detail
-      v-on:change-color="updateColor"
-      v-bind:coin="btc">
-
-
-      <template v-slot:text>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, aperiam? Non dignissimos nam, voluptatem ducimus eos, pariatur dolor quisquam at asperiores praesentium molestias recusandae cum inventore, omnis consequatur? Voluptate, quo?</p>
-      </template>
-
-      <template v-slot:link>
-        <a href="#">Link!</a>
-      </template>
-    </coin-detail>
-
-  </div> -->
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="app.js"></script>
