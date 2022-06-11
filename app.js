@@ -38,12 +38,16 @@ Vue.component("mostrar_precio",{
 
         <input type="number" v-model="value">
         <span> {{convertValue}}</span>
-
+        
+        
+        
         <ul v-show="showPrices">
             <li 
             v-bind:class="{orange: (prop_object.plata == p.value)}"
             v-for="(p,i) in prop_object.precios_con_dias"> <p>{{i}}-{{p.dia}}:{{p.value}}</p> </li>
         </ul>
+        <slot name="texto"></slot> 
+        <slot name="link"></slot> 
       </div>
 `
         

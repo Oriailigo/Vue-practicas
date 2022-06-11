@@ -11,8 +11,16 @@
   <!-- 1) -->
   <div id="api" v-bind:style="{background:'#'+color}"> 
       <!-- <pri_encabezado></pri_encabezado> -->
-      <mostrar_precio v-bind:prop_object="btc"
-      ></mostrar_precio>
+      <mostrar_precio v-bind:prop_object="btc">
+        <!-- uso de template desde un componente padre hacia el hijo: Puedo usar cualquier tag de HTML -->
+        <template v-slot:texto>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus praesentium est enim porro sed aspernatur voluptatem laudantium dolorem, accusamus possimus corporis sunt fugit? Modi non, commodi expedita minus temporibus atque.</p>
+      
+        </template>
+        <template v-slot:link>
+          <a href="#">Link</a>
+        </template>
+        </mostrar_precio>
       
 
 </div>
