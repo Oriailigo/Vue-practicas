@@ -1,0 +1,19 @@
+cd platzi-exchange
+npm run serve
+
+Usar el comando de vue:
+
+	npm install -g @vue/cli
+
+crear un proyecto en vue:
+	vue create platzi-exchange
+	luego configuro de manera manual las cosas que quiero.
+	voy a usar babel y linter/formater (enter)
+	elijo lefpreater (enter)
+	se linte al guardar (enter)
+	selecciono archivos dedicados (enter)
+	yes
+	platzi
+
+puedo entrar a la carpeta platzi-exchange mediante el comando: cd platzi-exchange
+correr el proyecto: npm run serve
