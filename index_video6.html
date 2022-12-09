@@ -11,8 +11,13 @@
   <div id="app">
     <img v-bind:src="img" v-bind:alt="name">
     <h1 >{{name}}</h1>
-    <span v-on:click="togle_show_prices">Ver precios</span>
-    <p v-show="show_prices" v-for="(i,key) in pricesWithDays">{{key}}: {{i.day}} = {{i.value}} </p>
+    <span v-bind:style="{background:color}" 
+    v-on:click="togle_show_prices">Ver precios</span>
+    <p v-bind:class="{orange:price===i.value}" 
+    v-show="show_prices" v-for="(i,key) in pricesWithDays">{{key}}: {{i.day}} = {{i.value}} </p>
+  
+    <input type="number" v-model="value">
+    <span>{{convertedvalue}}</span>
   </div>
     
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
