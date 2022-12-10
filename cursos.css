@@ -1,0 +1,41 @@
+body{
+    background-color: #121f3d;
+}
+
+.flex_container{
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    align-items: center;
+    
+}
+.div-center{
+    text-align: center;
+}
+
+.tex-color{
+    color: #98ca3f;
+}
+
+.img-content{
+    display: flex;
+}
+
+.input-custom{
+    padding: 0.5rem;
+    border-radius: 2rem;
+}
+
+.button_custom{
+    border-radius: 2rem;
+    border-color: #98ca3f;
+    background-color: #121f3d;
+}
+
+h3,p,ol{
+    color: aliceblue;
+}
+
+.text_platzi{
+    width: 100px;
+}

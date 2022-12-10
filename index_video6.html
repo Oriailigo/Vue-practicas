@@ -6,21 +6,50 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Curso Basico de Vue.js | Platzi</title>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./cursos.css">
 </head>
 <body>
-  <div id="app">
-    <img v-bind:src="img" v-bind:alt="name">
-    <h1 >{{name}}</h1>
-    <span v-bind:style="{background:color}" 
-    v-on:click="togle_show_prices">Ver precios</span>
-    <p v-bind:class="{orange:price===i.value}" 
-    v-show="show_prices" v-for="(i,key) in pricesWithDays">{{key}}: {{i.day}} = {{i.value}} </p>
-  
-    <input type="number" v-model="value">
-    <span>{{convertedvalue}}</span>
+  <div id="app_p" class="flex_container">
+    <div class="img-content">
+      <img src="https://static.platzi.com/media/platzi-isotipo@2x.png" alt="icono de platzi">
+      <img class="text_platzi" src="https://static.platzi.com/media/logotipo-platzi.png" alt="texto platzi">    
+    </div>
+    <h1 class="tex-color">
+      Mis Cursos de Platzi💚
+    </h1>
+      <p>
+        <input v-model="title" class="input-custom" type="text" placeholder="Titulo del curso"/>
+        
+      </p>
+      <p >
+        <input v-model="time" class="input-custom" type="number" placeholder="Horas"/>
+      </p>
+      <p>
+        <button @click="addCourse" class="tex-color button_custom">Guardar Curso</button>
+      </p>
+    </fieldset>
+    <div class="div-center">
+      <h3>Lista de Cursos</h3>
+      <hr/>
+      <div v-show="show_messaje">
+          <p class="red">Aun no has realizado cursos</p>
+      </div>
+      <div v-show="show_courses">
+        <ol v-for="i in courses">
+          Curso: {{i.title}} | horas: {{i.time}}
+          <!-- Lista de cursos -->
+        </ol>
+        <hr/>
+        <p>
+          Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+          <b>#NuncaParesDeAprender 💚</b>
+        </p>
+      </div>
+    </div>
   </div>
     
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="app.js"></script>
+  <script src="app_p.js"></script>
 </body>
 </html>
+
