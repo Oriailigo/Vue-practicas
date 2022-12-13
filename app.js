@@ -10,6 +10,7 @@ Vue.component('CoinDetail',{
   methods:{
     toggleShowPrices(){
         this.showPrices=!this.showPrices;
+        this.$emit('change-color',this.showPrices?'f4f4f4':'FF96C8')
     }
   },
   computed:{
@@ -23,28 +24,31 @@ Vue.component('CoinDetail',{
   template:
     `
     <div>
-        <h1 v-bind:class="price > 0 ? 'red':'green' "> {{ coin.name }} </h1>   
-        
         <img v-on:mouseover="toggleShowPrices"
         v-on:mouseout="toggleShowPrices"
         v-bind:src="coin.img" v-bind:alt="coin.name">
 
+        <h1 v-bind:class="price > 0 ? 'red':'green' "> {{ coin.name }} </h1>   
+        
         <h1>
           <span v-on:click="toggleShowPrices">
           mostrar precios
           {{ showPrices ? '🙉' : '🙈' }}
           </span>
         </h1>
-
+        
         <ul v-show="showPrices">
           <li 
           v-bind:class="{orange: (price == p.value)}"
           v-for="(p,i) in coin.priceswithdays"> <p>{{i}}-{{p.day}}:{{p.value}}</p> </li>
         </ul>
 
+        
         <input type="number" v-model="value">
         <span> {{convertValue}}</span> 
         
+        <slot name="text"></slot>
+        <slot name="link"></slot>
     </div>
     `
   
@@ -54,10 +58,12 @@ const app=new Vue({
   el: '#app',
   data(){
     return {
+      color:'f4f4f4',
       btc:{
+        
         img:"https://cryptologos.cc/logos/bitcoin-btc-logo.png",
             
-        name:"Bitcoin",
+        name:"Bitcoin-BTC",
         priceswithdays: [
           { day: 'Lunes', value: 8400 },
           { day: 'Martes', value: 7900 },
@@ -69,6 +75,12 @@ const app=new Vue({
         ],
       }
      } 
+  },
+  methods:{
+    updatecolor(color){
+        this.color=color ||this.color.split('').
+        reverse().join('');
+    }
   },
 
   
