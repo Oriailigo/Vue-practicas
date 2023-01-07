@@ -1,0 +1,23 @@
+.img-tamaño{
+   width: 100%;
+}
+.div-img{
+    height: auto;
+
+}
+
+.content-info{
+    border: 12px;
+    border-color: aliceblue;
+    border-left: 12px;
+    border-radius: 12px;
+}
+.mg-top{
+    margin-top: 2rem;
+}
+
+.content-flex{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}

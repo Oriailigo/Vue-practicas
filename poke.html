@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso Basico de Vue.js | Platzi</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./cursos.css">
+  <link rel="stylesheet" href="./poke.css">
+</head>
+<body>
+  <div id="app_p" class="flex_container">
+    <div class="img-content">
+      <img src="https://static.platzi.com/media/platzi-isotipo@2x.png" alt="icono de platzi">
+      <img class="text_platzi" src="https://static.platzi.com/media/logotipo-platzi.png" alt="texto platzi">    
+    </div>
+    <h1 class="tex-color">
+      Mis Pokemón💚
+    </h1>
+    <input v-model="title" class="input-custom" type="text" placeholder="Buscar pokemón..."/>
+                
+    <div class="content-flex mg-top">
+      <div class="div-img">
+        <img class="img-tamaño" src="img/pokedex-3.jpeg" alt="pokemon">
+      </div>  
+      
+      <div class="content-info">
+            <p>
+                <label for="text">Nombre: </label>
+                <input v-model="title" class="input-custom" type="text" placeholder="Titulo del curso"/>
+                
+            </p>
+            <p >
+                <label for="text">Tipo: </label>
+                <input v-model="time" class="input-custom" type="number" placeholder="Horas"/>
+            </p>
+            <p >
+                <label for="text">Descripción: </label>
+                <input v-model="time" class="input-custom" type="number" placeholder="Horas"/>
+            </p>
+      </div>
+    </div>
+      <p>
+        <button @click="addCourse" class="tex-color button_custom">Siguiente</button>
+      </p>
+    </fieldset>
+    <div class="div-center">
+      <h3>Lista de Cursos</h3>
+      <hr/>
+      <div v-show="show_messaje">
+          <p class="red">Aun no has realizado cursos</p>
+      </div>
+      <div v-show="show_courses">
+        <ol v-for="i in courses">
+          Curso: {{i.title}} | horas: {{i.time}}
+          <!-- Lista de cursos -->
+        </ol>
+        <hr/>
+        <p>
+          Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+          <b>#NuncaParesDeAprender 💚</b>
+        </p>
+      </div>
+    </div>
+  </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app_p.js"></script>
+</body>
+</html>
+
